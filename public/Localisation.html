@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EspritMed — Localisation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">EM</span>
+        <span class="brand-name">EspritMed</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#">Accueil</a>
+        <a href="#">Fiche medicale</a>
+        <a href="#">Rendez-vous</a>
+        <a href="#">Espace Consultation</a>
+        <a class="active" href="#">A propos de nous</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-outline" type="button">Se connecter</button>
+        <button class="btn btn-solid" type="button">S'inscrire</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page -->
+  <main class="page">
+    <section class="wrap content">
+      <h1 class="title">Localisation des cabinets dans le campus</h1>
+
+      <div class="map-shell">
+        <article class="map-card" aria-label="Esprit Map">
+          <header class="map-head">
+            <button class="map-head-ico" type="button" aria-label="Paramètres carte">
+              <!-- petit icon rond gauche -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 7v5l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <div class="map-head-txt">
+              <div class="map-head-title">Esprit Map</div>
+              <div class="map-head-sub">Campus Esprit — Centre de santé</div>
+            </div>
+          </header>
+
+          <div class="map-body">
+            <!-- mini contrôles à gauche (comme sur capture) -->
+            <div class="map-controls" aria-hidden="true">
+              <div class="ctl-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="ctl-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- “carte” (SVG) -->
+            <div class="map-canvas">
+              <svg class="map-svg" viewBox="0 0 560 360" role="img" aria-label="Carte du campus (maquette)">
+                <!-- fond -->
+                <rect x="0" y="0" width="560" height="360" rx="18" fill="#eaf7f6"/>
+                <!-- routes -->
+                <path d="M285 10 L305 350" stroke="#d7ecea" stroke-width="10" opacity=".9"/>
+                <path d="M60 190 L520 190" stroke="#d7ecea" stroke-width="10" opacity=".65"/>
+                <path d="M110 45 L250 160" stroke="#d7ecea" stroke-width="8" opacity=".7"/>
+
+                <!-- blocs (formes arrondies / semi-cercles) -->
+                <path d="M120 90
+                         A120 120 0 0 1 360 90
+                         L360 135
+                         A120 120 0 0 0 120 135 Z"
+                      fill="#cfe8e6" stroke="#b9ddda"/>
+                <text x="270" y="112" text-anchor="middle" font-size="14" fill="#21484c" font-weight="700">Bloc A</text>
+
+                <path d="M-30 290
+                         A160 160 0 0 1 200 290
+                         L200 360
+                         L-30 360 Z"
+                      fill="#cfe8e6" stroke="#b9ddda"/>
+                <text x="80" y="270" text-anchor="middle" font-size="14" fill="#21484c" font-weight="700">Bloc C</text>
+
+                <path d="M390 250
+                         A140 140 0 0 1 640 250
+                         L640 360
+                         L390 360 Z"
+                      fill="#cfe8e6" stroke="#b9ddda"/>
+                <text x="470" y="230" text-anchor="middle" font-size="14" fill="#21484c" font-weight="700">Bloc M</text>
+
+                <!-- pins + labels -->
+                <g transform="translate(250,142)">
+                  <circle cx="0" cy="0" r="10" fill="#ff5a5f"/>
+                  <circle cx="0" cy="0" r="4" fill="#fff"/>
+                  <text x="0" y="28" text-anchor="middle" font-size="11" fill="#1f2f33">Dr. Ali</text>
+                </g>
+
+                <g transform="translate(85,312)">
+                  <circle cx="0" cy="0" r="10" fill="#ff5a5f"/>
+                  <circle cx="0" cy="0" r="4" fill="#fff"/>
+                  <text x="0" y="28" text-anchor="middle" font-size="11" fill="#1f2f33">Dr. Fedi</text>
+                </g>
+
+                <g transform="translate(505,312)">
+                  <circle cx="0" cy="0" r="10" fill="#ff5a5f"/>
+                  <circle cx="0" cy="0" r="4" fill="#fff"/>
+                  <text x="0" y="28" text-anchor="middle" font-size="11" fill="#1f2f33">Dr. Imen</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <button class="cta" type="button">Discuter avec le chatbot</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrap footgrid">
+        <div>
+          <div class="foot-title">EspritMed</div>
+          <div class="foot-text">Service de santé universitaire — Tunis</div>
+          <div class="foot-text">© Tous droits réservés.</div>
+        </div>
+
+        <div>
+          <div class="foot-col-title">Liens</div>
+          <a href="#" class="foot-link">Charte de confidentialité</a>
+          <a href="#" class="foot-link">Conditions d'utilisation</a>
+          <a href="#" class="foot-link">Accessibilité</a>
+        </div>
+
+        <div>
+          <div class="foot-col-title">Contact</div>
+          <div class="foot-text">sante@univ.tn</div>
+          <div class="foot-text">+216 00 000 000</div>
+          <div class="foot-text">Av. de l'Université, Tunis</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

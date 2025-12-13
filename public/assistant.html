@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EspritMed — Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">EM</span>
+        <span class="brand-name">EspritMed</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#">Accueil</a>
+        <a href="#">Fiche medicale</a>
+        <a href="#">Rendez-vous</a>
+        <a href="#">Espace Consultation</a>
+        <a class="active" href="#">A propos de nous</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-outline" type="button">Se connecter</button>
+        <button class="btn btn-solid" type="button">S'inscrire</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="center-area">
+      <div class="chat-card">
+        <h1 class="chat-title">Assistant EspritMed</h1>
+
+        <div class="chat-body">
+          <!-- User bubble -->
+          <div class="msg msg-user">
+            <div class="msg-head">Vous Exemple</div>
+            <div class="bubble">
+              J’ai mal à la tête depuis ce matin, je ne sais pas si je dois venir aux urgences
+              ou prendre un rendez-vous simple.
+            </div>
+          </div>
+
+          <!-- Bot bubble -->
+          <div class="msg msg-bot">
+            <div class="msg-head">Assistant EspritMed <span class="muted">Réponse simulée</span></div>
+            <div class="bubble">
+              Merci pour ces précisions. Je vais vous poser 3 petites questions sur vos symptômes
+              pour vous orienter vers : <strong>un rendez-vous classique</strong> ou <strong>le circuit d’urgence</strong>.
+            </div>
+          </div>
+
+          <div class="wait-pill" aria-label="Temps d'attente estimé">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Temps d'attente estimé pour parler à une infirmière : <strong>8 à 12 min</strong>
+          </div>
+        </div>
+
+        <div class="chat-input">
+          <div class="bot-badge" aria-hidden="true">
+            <div class="bot-dot">🤖</div>
+            <div class="bot-text">CHATBOT</div>
+          </div>
+
+          <input class="input" type="text" placeholder="Écrivez votre message à EspritMed..." />
+
+          <button class="icon-btn" type="button" aria-label="Joindre un fichier">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M8 12.5 14.5 6a4 4 0 0 1 5.5 5.5L11 20.5A6 6 0 0 1 2.5 12l9.7-9.7"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <button class="send" type="button" aria-label="Envoyer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrap footgrid">
+        <div>
+          <div class="foot-title">EspritMed</div>
+          <div class="foot-text">Service de santé universitaire — Tunis</div>
+          <div class="foot-text">© Tous droits réservés.</div>
+        </div>
+
+        <div>
+          <div class="foot-col-title">Liens</div>
+          <a href="#" class="foot-link">Charte de confidentialité</a>
+          <a href="#" class="foot-link">Conditions d'utilisation</a>
+          <a href="#" class="foot-link">Accessibilité</a>
+        </div>
+
+        <div>
+          <div class="foot-col-title">Contact</div>
+          <div class="foot-text">sante@univ.tn</div>
+          <div class="foot-text">+216 00 000 000</div>
+          <div class="foot-text">Av. de l'Université, Tunis</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
