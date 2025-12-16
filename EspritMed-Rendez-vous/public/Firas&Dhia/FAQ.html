@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - EspritMed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-teal': '#008080',       /* Teal principal */
+                        'secondary-light': '#e6f7f7',    /* Vert très clair pour les fonds et cartes */
+                        'text-dark': '#555',             /* Gris foncé pour le texte principal */
+                        'text-light': '#666',            /* Gris clair pour le texte secondaire */
+                        'bg-light': '#f7f7f7',           /* Fond de la page (si besoin) */
+                        'border-light': '#e0e0e0',       /* Bordures */
+                        'card-dark': '#2e8b8b',          /* Vert foncé pour certaines cartes (non utilisé directement ici mais défini) */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="FAQ.css">
+</head>
+<body class="bg-white">
+
+    <header class="flex justify-between items-center px-5 lg:px-10 py-4 shadow-md bg-white">
+        <div class="text-xl font-bold text-primary-teal">
+            <span class="text-text-dark">EM</span> EspritMed
+        </div>
+        <nav class="hidden md:flex space-x-6 text-text-dark">
+            <a href="#" class="hover:text-primary-teal">Accueil</a>
+            <a href="AboutUs.html" class="hover:text-primary-teal">À propos de nous</a>
+            <a href="#" class="hover:text-primary-teal">Médecins</a>
+            <a href="#" class="hover:text-primary-teal">Rendez-vous</a>
+            <a href="#" class="hover:text-primary-teal">File d'attente</a>
+            <a href="Actualiter.html" class="hover:text-primary-teal">Actualités</a>
+            <a href="#" class="text-primary-teal font-bold border-b-2 border-primary-teal">FAQ</a>
+        </nav>
+        <div class="flex space-x-3">
+            <a href="#" class="px-4 py-2 border border-primary-teal text-primary-teal rounded-md font-semibold hover:bg-secondary-light transition">Se connecter</a>
+            <a href="#" class="px-4 py-2 bg-primary-teal text-white rounded-md font-semibold hover:bg-opacity-90 transition">S'inscrire</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 lg:p-10">
+
+        <h1 class="text-center text-text-dark text-lg mb-8">Frequently Asked Questions (FAQ)</h1>
+        
+        <div class="mb-10 max-w-2xl mx-auto">
+            <div class="relative">
+                <input type="text" placeholder="Rechercher" class="w-full py-3 px-12 border border-border-light rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary-teal">
+                <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m0 0V9a2 2 0 012-2h2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v2m-3 0v4m0 0H7m10-4H7"></path></svg>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <div class="w-full lg:w-2/3 space-y-4">
+
+                <div class="faq-item bg-white border border-border-light rounded-lg shadow-sm">
+                    <button class="faq-header w-full flex justify-between items-center p-6 text-left font-semibold text-text-dark">
+                        . Comment puis-je prendre un rendez-vous avec le médecin ou l'infirmière du campus ?
+                        <span class="faq-icon text-primary-teal text-2xl font-light">+</span>
+                    </button>
+                    <div class="faq-content p-6 pt-0 text-text-light" style="display: block;">
+                        <p>Vous pouvez prendre un rendez-vous en ligne via le portail médical de l'université ou en vous rendant directement au service médical pendant les heures de travail.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white border border-border-light rounded-lg shadow-sm">
+                    <button class="faq-header w-full flex justify-between items-center p-6 text-left font-semibold text-text-dark">
+                        Que dois-je faire si je me sens malade pendant les heures ?
+                        <span class="faq-icon text-primary-teal text-2xl font-light">+</span>
+                    </button>
+                    <div class="faq-content p-6 pt-0 text-text-light hidden">
+                        <p>Si vous ne vous sentez pas bien, informez votre enseignant et rendez-vous immédiatement au service médical. En cas d'urgence, appelez directement le centre de santé du campus.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white border border-border-light rounded-lg shadow-sm">
+                    <button class="faq-header w-full flex justify-between items-center p-6 text-left font-semibold text-text-dark">
+                        Les consultations et les traitements médicaux sont-ils gratuits pour les étudiants ?
+                        <span class="faq-icon text-primary-teal text-2xl font-light">+</span>
+                    </button>
+                    <div class="faq-content p-6 pt-0 text-text-light hidden">
+                        <p>Les informations sur la gratuité des services sont disponibles auprès du service d'administration de l'université ou sur le portail étudiant.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/3 space-y-4">
+                
+                <div class="bg-secondary-light p-8 rounded-lg shadow-md border-t-4 border-primary-teal">
+                    <h4 class="text-xl font-semibold text-text-dark mb-4">Avez-vous d'autres questions ?</h4>
+                    <div class="bg-primary-teal text-white text-center py-3 rounded-md font-semibold cursor-pointer hover:opacity-90 transition">
+                        Cliquez ici
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-10 border-t border-border-light">
+                    <h4 class="text-center text-text-dark text-lg mb-8 font-semibold">CONTACTEZ-NOUS</h4>
+                    <h5 class="text-center text-primary-teal text-2xl mb-8 font-bold">Contact</h5>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="info-card bg-secondary-light p-4 rounded-md text-text-dark border border-secondary-light">
+                            <h6 class="font-bold text-primary-teal text-sm mb-1">URGENCE</h6>
+                            <p class="text-xs">(237) 681-812-255<br>(237) 666-331-894</p>
+                        </div>
+                        <div class="info-card bg-white p-4 rounded-md text-text-dark border border-border-light">
+                            <h6 class="font-bold text-primary-teal text-sm mb-1">LOCALISATION</h6>
+                            <p class="text-xs">180 pôle Technologique<br> El Ghazela Ariana</p>
+                        </div>
+                        <div class="info-card bg-white p-4 rounded-md text-text-dark border border-border-light">
+                            <h6 class="font-bold text-primary-teal text-sm mb-1">EMAIL</h6>
+                            <p class="text-xs">Medesprit@gmail.com</p>
+                        </div>
+                        <div class="info-card bg-secondary-light p-4 rounded-md text-text-dark border border-secondary-light">
+                            <h6 class="font-bold text-primary-teal text-sm mb-1">HEURE DE TRAVAIL</h6>
+                            <p class="text-xs">Lundi-Ven (8h-18h)<br>Samedi et Dimanche juste pour les cas d'urgence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-secondary-light text-primary-teal mt-10 p-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark">EspritMed</h4>
+                <p class="text-sm">Service de santé universitaire — Tunis</p>
+                <p class="text-xs mt-4">© 2025 Tous droits réservés.</p>
+                <p class="text-xs">Accessibilité</p>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark">Liens</h4>
+                <a href="#" class="block text-sm hover:text-text-dark">Charte de confidentialité</a>
+                <a href="#" class="block text-sm hover:text-text-dark">Conditions d'utilisation</a>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark">Contact</h4>
+                <a href="mailto:sante@univ.tn" class="block text-sm hover:text-text-dark">sante@univ.tn</a>
+                <p class="text-sm">+216 00 000 000</p>
+                <p class="text-sm">Av. de l'Université, Tunis</p>
+            </div>
+            <div></div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                
+                // Toggle display of content
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.textContent = '+';
+                } else {
+                    // Cacher tous les autres avant d'ouvrir celui-ci (style accordéon)
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
+                    document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+                    
+                    content.style.display = 'block';
+                    icon.textContent = '-';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

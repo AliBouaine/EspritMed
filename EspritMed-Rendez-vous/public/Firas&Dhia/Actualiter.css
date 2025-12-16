@@ -1,0 +1,28 @@
+/* Fichier magazine_custom_styles.css */
+
+/*
+   La majorité du style est gérée par les classes Tailwind dans le HTML.
+   Ce fichier est ici pour respecter l'exigence de séparation HTML/CSS,
+   mais n'a pas besoin de contenu substantiel pour ce design.
+*/
+
+/* Exemple pour des styles de base ou des polices si vous en aviez */
+/*
+body {
+    font-family: 'Roboto', sans-serif;
+}
+*/
+
+/* Styles spécifiques qui pourraient ne pas être purement utilitaires */
+
+/* Style pour l'image de bannière (si vous ne voulez pas utiliser le style inline)
+.magazine-banner {
+    background-image: url('votre_image_de_fond.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 256px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+*/
