@@ -1,413 +1,46 @@
-/* --- Variables de couleur basées sur le design (à adapter si elles existent déjà dans un fichier 'style.css') --- */
-:root {
-    --primary-color: #008080; /* Bleu-vert/Teal principal */
-    --secondary-color: #f7f7f7; /* Gris très clair de fond */
-    --text-color: #333;
-    --light-text-color: #666;
-    --white: #fff;
-    --dark-gray: #555;
-    --border-color: #e0e0e0;
-    --light-card-color: #e6f7f7; /* Couleur des cartes d'info claires */
-    --dark-card-color: #2e8b8b; /* Couleur des cartes d'info foncées */
-}
+/* Fichier custom_contact_styles.css */
 
-/* --- Styles de base (si non inclus dans un fichier général) --- */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-}
-
-/* --- Header / Navigation (Réutilisation du style standard) --- */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: var(--white);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-.nav-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-.nav-menu li a {
-    padding: 0 15px;
-    color: var(--text-color);
-    transition: color 0.3s;
-}
-.nav-menu li a:hover, .nav-menu li .active-link {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-.auth-buttons .btn {
-    padding: 8px 15px;
-    border-radius: 4px;
-    margin-left: 10px;
-    font-weight: bold;
-}
-.btn-connecter {
-    background: none;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-}
-.btn-creer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: 1px solid var(--primary-color);
-}
-
-
-/* --- Styles de la section Contact --- */
-.page-contact {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 5%;
-}
-
-.section-title {
-    font-size: 2em;
-    color: var(--dark-gray);
-    margin-bottom: 30px;
-}
-
-.contact-grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
-}
-
-/* Colonne Formulaire (Gauche) */
-.contact-form-col {
-    flex: 1 1 500px;
-    min-width: 300px;
-}
-
-.contact-form table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form td {
-    padding: 0;
-    border: none;
-    color: var(--white);
-    background-color: transparent;
-}
-
-/* Première ligne de Nom/Email */
-.contact-form .form-header {
-    padding: 20px 20px 5px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9em;
-    text-transform: uppercase;
-}
-.contact-form .input-name, .contact-form .input-email {
-    width: 50%;
-    padding: 15px 20px;
-    box-sizing: border-box;
-    border: none;
-    background-color: #006666; /* Vert foncé/Teal */
-    color: var(--white);
-    font-size: 1em;
-    outline: none;
-}
-.contact-form .input-name {
-    border-right: 1px solid #004d4d;
-}
-
-/* Lignes Subject/Message */
-.contact-form .label-row {
-    width: 100px;
-    padding: 15px 20px;
-    background-color: #006666; 
-    border-top: 1px solid #004d4d;
-    vertical-align: middle;
-}
-.contact-form input[type="text"]:not(.input-name):not(.input-email), .contact-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #006666;
-    border: none;
-    color: var(--white);
-    font-size: 1em;
-    padding: 15px 20px;
-    resize: none;
-    outline: none;
-    border-top: 1px solid #004d4d;
-}
-.contact-form textarea {
-    height: 150px;
-}
-
-/* Ligne Submit */
-.contact-form .submit-row td {
-    background: none;
-    padding: 20px;
-    text-align: right;
-    border: none;
-}
-.contact-form .submit-btn {
-    background-color: var(--white);
-    color: var(--primary-color);
-    border: none;
-    padding: 12px 40px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.contact-form .submit-btn:hover {
-    background-color: #e0e0e0;
-}
-
-
-/* Colonne Infos (Droite) */
-.contact-info-col {
-    flex: 1 1 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.info-card {
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    /* Les images montrent des icônes, mais elles ne sont pas dans le HTML.
-       Si vous voulez ajouter des icônes, vous auriez besoin d'une bibliothèque d'icônes
-       et de les insérer dans le HTML. */
-}
-
-.info-card-light {
-    background-color: var(--light-card-color); /* E6F7F7 */
-    color: var(--primary-color);
-}
-.info-card-dark {
-    background-color: var(--dark-card-color); /* 2E8B8B */
-    color: var(--white);
-}
-
-.info-card h4 {
-    font-size: 0.9em;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-    font-weight: bold;
-}
-.info-card p {
-    font-size: 0.9em;
-    margin: 0;
-    line-height: 1.4;
-}
-.info-card a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* --- Section Actualité --- */
-.news-section {
-    text-align: center;
-    padding: 50px 5%;
-    background-color: var(--white);
-    max-width: 1200px;
-    margin: 0 auto 50px;
-}
-
-.news-main-header {
-    font-size: 1em;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    color: var(--light-text-color);
-    font-weight: normal;
-    letter-spacing: 2px;
-}
-.news-section .section-title {
-    margin-top: 0;
-    margin-bottom: 40px;
-}
-
-.news-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.news-card {
-    flex: 1 1 45%;
-    max-width: 500px;
-    text-align: left;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.3s;
-}
-.news-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.news-card-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #0080801a; /* Placeholder light background color */
-    margin-right: 20px;
-    flex-shrink: 0;
-    /* Pour intégrer les images/illustrations dans le cercle, utiliser background-image */
-}
-/* Ajoutez ici les images de fond si elles sont disponibles */
 /*
-.image-prevention { background-image: url('img/prevention.svg'); background-size: 60%; background-repeat: no-repeat; background-position: center; }
-...
+    Les styles suivants sont nécessaires pour assurer l'aspect
+    de la fusion des cellules et des bordures internes du formulaire
+    qui repose sur une structure de tableau (<table>).
 */
 
-.news-card-date {
-    font-size: 0.8em;
-    color: var(--light-text-color);
-    margin-bottom: 5px;
+/* Assure que les inputs remplissent bien leur moitié de cellule sans padding */
+.contact-form table td input, 
+.contact-form table td textarea {
+    /* Tailwind gère la plupart des styles, mais ce style est une précaution pour l'héritage de la table */
+    border: none !important;
+    padding: 1rem;
 }
 
-.news-card-title {
-    font-size: 1em;
-    font-weight: bold;
-    color: var(--text-color);
-    margin: 0 0 10px;
-}
-
-.news-card-footer span {
-    font-size: 0.9em;
-    color: var(--light-text-color);
-    margin-right: 15px;
-}
-
-/* Pagination */
-.news-pagination {
-    text-align: center;
-    margin-top: 30px;
-}
-.news-pagination .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin: 0 5px;
-    transition: background-color 0.3s;
-}
-.news-pagination .dot.active {
-    background-color: var(--primary-color);
+/* Fixe la hauteur de la ligne 'Sujet' et 'Message' pour un alignement propre */
+.contact-form table tr:nth-child(3) td:first-child,
+.contact-form table tr:nth-child(4) td:first-child {
+    width: 120px; /* Taille fixe pour le label de gauche */
 }
 
 
-/* --- Footer (Reprise du design existant) --- */
-.footer {
-    background-color: var(--light-card-color);
-    padding: 40px 5%;
-    color: var(--primary-color);
-}
-.footer-grid {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-.footer-column {
-    flex: 1 1 200px;
-    margin-bottom: 20px;
-}
-.footer-column h4 {
-    font-size: 1.1em;
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: var(--dark-gray);
-    font-weight: bold;
-}
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-.footer-column ul li {
-    margin-bottom: 8px;
-    font-size: 0.9em;
-}
-.footer-column a {
-    color: inherit;
-    transition: color 0.3s;
-}
-.footer-column a:hover {
-    color: var(--text-color);
-}
-
-
-/* --- Media Queries pour le Responsive Design --- */
-@media (max-width: 900px) {
-    .contact-grid-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .contact-form-col, .contact-info-col {
-        flex: 1 1 90%;
-    }
-}
-@media (max-width: 600px) {
-    .header {
-        flex-direction: column;
-    }
-    .nav-menu ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px 0;
-    }
-    .nav-menu li a {
-        padding: 5px 10px;
-    }
-    .contact-form .input-name, .contact-form .input-email {
+/* Media Query pour les petits écrans (reproduit les ajustements CSS originaux) */
+@media (max-width: 640px) {
+    /* Cache les libellés de la première ligne (Name/Email) sur mobile */
+    .contact-form td:first-child {
+        display: block;
         width: 100%;
-        border-right: none;
     }
-    .contact-form .form-header {
-        flex-direction: column;
+    .contact-form td:first-child span {
+        display: none; /* Cache les labels Name/Email */
     }
-    .contact-form .label-row {
-        display: none; /* Cache le libellé pour gagner de l'espace sur mobile */
+    
+    /* Les inputs Nom/Email prennent toute la largeur sur mobile */
+    .contact-form table tr:nth-child(2) input {
+        width: 100% !important;
+        border-right: none !important; 
     }
-    .contact-info-col {
-        grid-template-columns: 1fr;
-    }
-    .news-card {
-        flex: 1 1 100%;
-        flex-direction: column;
-        text-align: center;
-    }
-    .news-card-image {
-        margin: 0 auto 15px;
-    }
-    .footer-grid {
-        flex-direction: column;
-        text-align: center;
+    
+    /* Cache les libellés Subject/Message (pour le design plus compact) */
+    .contact-form table tr:nth-child(3) td:first-child,
+    .contact-form table tr:nth-child(4) td:first-child {
+        display: none; 
     }
 }

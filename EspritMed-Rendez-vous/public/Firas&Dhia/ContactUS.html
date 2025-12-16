@@ -3,183 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Actualités - EspritMed</title> 
-    <link rel="stylesheet" href="ContactUs.css"> 
-</head>
-<body>
+    <title>Contact & Actualités - EspritMed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Définition des couleurs personnalisées pour se rapprocher du design */
+        :root {
+            --color-primary: #2B7A78; /* Vert-bleu foncé */
+            --color-secondary: #D6E8E9; /* Vert-bleu clair */
+            --color-background-light: #F0F7F7; /* Fond très clair */
+            --color-header-text: #2F4F4F; /* Texte de l'en-tête (Contact) */
+        }
 
-    <header class="header">
-        <div class="logo">
-            <span style="color: var(--dark-gray);">EM</span> EspritMed
+        .bg-primary {
+            background-color: var(--color-primary);
+        }
+        .bg-secondary {
+            background-color: var(--color-secondary);
+        }
+        .text-header {
+            color: var(--color-header-text);
+        }
+        /* Style pour la police de 'Contact' (simuler une police serif élégante) */
+        .font-elegant-serif {
+            font-family: Georgia, serif; 
+        }
+
+    </style>
+</head>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-teal': '#008080',       /* Bleu-vert principal */
+                        'secondary-light': '#e6f7f7',    /* Vert très clair pour les fonds et cartes */
+                        'text-dark': '#555',             /* Gris foncé pour le texte principal */
+                        'text-light': '#666',            /* Gris clair pour le texte secondaire */
+                        'bg-page': '#f7f7f7',            /* Fond de la page */
+                        'border-light': '#e0e0e0',       /* Bordures */
+                        'card-dark': '#2e8b8b',          /* Vert foncé pour certaines cartes */
+                        'form-dark': '#006666',          /* Couleur spécifique pour l'intérieur du formulaire */
+                        'form-border': '#004d4d',        /* Bordure/séparation du formulaire */
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="ContactUs.css">
+</head>
+<body class="bg-bg-page text-text-dark">
+
+    <header class="flex justify-between items-center px-5 lg:px-10 py-4 shadow-md bg-white">
+        <div class="text-xl font-bold text-primary-teal">
+            <span class="text-text-dark">EM</span> EspritMed
         </div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="AboutUs.html">À propos de nous</a></li>
-                <li><a href="#">Médecins</a></li>
-                <li><a href="#">Rendez-vous</a></li>
-                <li><a href="#">File d'attente</a></li>
-                <li><a href="#" class="active-link">Actualités</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
+        <nav class="hidden md:flex space-x-6 text-text-dark">
+            <a href="" class="hover:text-primary-teal transition">Accueil</a>
+            <a href="AboutUs.html" class="hover:text-primary-teal transition">À propos de nous</a>
+            <a href="#" class="hover:text-primary-teal transition">Médecins</a>
+            <a href="#" class="hover:text-primary-teal transition">Rendez-vous</a>
+            <a href="#" class="hover:text-primary-teal transition">File d'attente</a>
+            <a href="Actualiter.html" class="text-primary-teal font-bold border-b-2 border-primary-teal">Actualités</a>
+            <a href="FAQ.html" class="hover:text-primary-teal transition">FAQ</a>
         </nav>
-        <div class="auth-buttons">
-            <a href="#" class="btn btn-connecter">Se connecter</a>
-            <a href="#" class="btn btn-creer">S'inscrire</a>
+        <div class="flex space-x-3">
+            <a href="#" class="px-4 py-2 border border-primary-teal text-primary-teal rounded-md font-semibold hover:bg-secondary-light transition">Se connecter</a>
+            <a href="#" class="px-4 py-2 bg-primary-teal text-white rounded-md font-semibold hover:bg-opacity-90 transition">S'inscrire</a>
         </div>
     </header>
     
-    <section class="page-contact">
+    <section class="max-w-7xl mx-auto my-12 p-4 lg:p-0">
         
-        <h2 class="section-title">Contact</h2>
 
-        <div class="contact-grid-container">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+           
+            
+<body class="bg-[var(--color-background-light)] min-h-screen p-8 md:p-16">
 
-            <div class="contact-form-col">
-                <form class="contact-form">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td colspan="2" class="form-header">
-                                    <span class="form-label-name">Name</span>
-                                    <span class="form-label-email">Email</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <input type="text" name="name" class="input-name">
-                                    <input type="email" name="email" class="input-email">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-row">Subject</td>
-                                <td><input type="text" name="subject"></td>
-                            </tr>
-                            <tr>
-                                <td class="label-row">Message</td>
-                                <td><textarea name="message"></textarea></td>
-                            </tr>
-                            <tr class="submit-row">
-                                <td colspan="2">
-                                    <button type="submit" class="submit-btn">SUBMIT</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-5xl font-elegant-serif text-header mb-8">Contact</h1>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <div class="lg:w-1/2 bg-white shadow-lg rounded-lg overflow-hidden">
+                <form class="flex flex-col h-full">
+                    
+                    <div class="grid grid-cols-2">
+                        <input type="text" placeholder="Name" class="p-4 border-b border-r border-white placeholder-white bg-primary text-white focus:outline-none focus:ring-1 focus:ring-white" />
+                        <input type="email" placeholder="Email" class="p-4 border-b border-white placeholder-white bg-primary text-white focus:outline-none focus:ring-1 focus:ring-white" />
+                    </div>
+                    
+                    <input type="text" placeholder="Subject" class="p-4 border-b border-white placeholder-white bg-primary text-white focus:outline-none focus:ring-1 focus:ring-white" />
+                    
+                    <textarea placeholder="Message" rows="8" class="flex-grow p-4 placeholder-white bg-primary text-white focus:outline-none focus:ring-1 focus:ring-white"></textarea>
+                    
+                    <button type="submit" class="w-full py-4 text-lg font-semibold uppercase tracking-widest text-primary bg-secondary hover:bg-opacity-90 transition-colors">
+                        Submit
+                    </button>
                 </form>
             </div>
 
-            <div class="contact-info-col">
+            <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <div class="info-card info-card-light">
-                    <h4>EMERGENCY</h4>
-                    <p>(237) 681-812-255<br>(237) 666-331-894</p>
+                <div class="bg-secondary p-6 rounded-lg flex flex-col items-start justify-center">
+                    <div class="flex items-center mb-3">
+                        <i class="fa-solid fa-phone text-3xl text-primary mr-3"></i> 
+                        <span class="text-xl font-bold uppercase text-primary">Emergency</span>
+                    </div>
+                    <div class="text-sm text-primary space-y-1 pl-10">
+                        <p>(237) 681-812-255</p>
+                        <p>(237) 666-331-894</p>
+                    </div>
                 </div>
 
-                <div class="info-card info-card-dark">
-                    <h4>LOCATION</h4>
-                    <p>0123 Some place<br>9876 Some country</p>
+                <div class="bg-primary p-6 rounded-lg text-white flex flex-col items-start justify-center">
+                    <div class="flex items-center mb-3">
+                        <i class="fa-solid fa-location-dot text-3xl mr-3"></i> 
+                        <span class="text-xl font-bold uppercase">Location</span>
+                    </div>
+                    <div class="text-sm space-y-1 pl-10">
+                        <p>0123 Some place</p>
+                        <p>9876 Some country</p>
+                    </div>
                 </div>
 
-                <div class="info-card info-card-light">
-                    <h4>EMAIL</h4>
-                    <p><a href="mailto:tidineeeeee@gmail.com">tidineeeeee@gmail.com</a><br><a href="mailto:myebstudios@gmail.com">myebstudios@gmail.com</a></p>
+                <div class="bg-secondary p-6 rounded-lg flex flex-col items-start justify-center">
+                    <div class="flex items-center mb-3">
+                        <i class="fa-solid fa-envelope text-3xl text-primary mr-3"></i> 
+                        <span class="text-xl font-bold uppercase text-primary">Email</span>
+                    </div>
+                    <div class="text-sm text-primary space-y-1 pl-10">
+                        <p>fildineesoe@gmil.com</p>
+                        <p>myebstudios@gmail.com</p>
+                    </div>
                 </div>
 
-                <div class="info-card info-card-dark">
-                    <h4>WORKING HOURS</h4>
-                    <p>Mon-Sat 08:00-20:00<br>Sunday Emergency only</p>
+                <div class="bg-primary p-6 rounded-lg text-white flex flex-col items-start justify-center">
+                    <div class="flex items-center mb-3">
+                        <i class="fa-solid fa-clock text-3xl mr-3"></i> 
+                        <span class="text-xl font-bold uppercase">Working Hours</span>
+                    </div>
+                    <div class="text-sm space-y-1 pl-10">
+                        <p>Mon-Sat 09:00-20:00</p>
+                        <p><span class="font-bold">Sunday Emergency only</span></p>
+                    </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+    </section>
+
+    <section class="text-center p-10 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-base uppercase text-text-light font-normal tracking-wider mb-1">MEILLEURES INFORMATIONS, MEILLEURE SANTÉ</h2>
+            <h3 class="text-3xl font-bold text-text-dark mb-10">Actualité</h3>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                
+                <div class="flex w-full lg:w-[48%] bg-white border border-border-light rounded-lg shadow-sm hover:shadow-md transition text-left p-5">
+                    <div class="w-20 h-20 rounded-full bg-secondary-light flex-shrink-0 mr-5">
+                    <img 
+                src="C:\Users\MSI\Desktop\02-Esprit_4Twin2\12_UI_Designe\EspritMed-Rendez-vous\EspritMed-Rendez-vous\public\Firas&Dhia\img\Screenshot 2025-12-16 205212.png"
+                alt="Article image"
+                class="w-full h-full object-cover rounded-full">    
+                    </div>
+                    <div>
+                        <p class="text-xs text-text-light mb-1">Lundi 05, September 2020</p>
+                        <p class="text-base font-bold text-text-dark mb-3">L'importance de la prévention dans la crise de la santé</p>
+                        <div class="text-xs text-text-light">
+                            <span class="mr-4">♡ 68</span>
+                            <span>💬 86</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex w-full lg:w-[48%] bg-white border border-border-light rounded-lg shadow-sm hover:shadow-md transition text-left p-5">
+                    <div class="w-20 h-20 rounded-full bg-secondary-light flex-shrink-0 mr-5">
+                    <img 
+                src="C:\Users\MSI\Desktop\02-Esprit_4Twin2\12_UI_Designe\EspritMed-Rendez-vous\EspritMed-Rendez-vous\public\Firas&Dhia\img\Screenshot 2025-12-16 205255.png"
+                alt="Article image"
+                class="w-full h-full object-cover rounded-full">    
+                    </div>
+                    <div>
+                        <p class="text-xs text-text-light mb-1">Lundi 05, September 2020</p>
+                        <p class="text-base font-bold text-text-dark mb-3">Gérer le stress : des habitudes simples pour un esprit sain</p>
+                        <div class="text-xs text-text-light">
+                            <span class="mr-4">♡ 68</span>
+                            <span>💬 86</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex w-full lg:w-[48%] bg-white border border-border-light rounded-lg shadow-sm hover:shadow-md transition text-left p-5">
+                    <div class="w-20 h-20 rounded-full bg-secondary-light flex-shrink-0 mr-5">
+                    <img 
+                src="C:\Users\MSI\Desktop\02-Esprit_4Twin2\12_UI_Designe\EspritMed-Rendez-vous\EspritMed-Rendez-vous\public\Firas&Dhia\img\Screenshot 2025-12-16 205315.png"
+                alt="Article image"
+                class="w-full h-full object-cover rounded-full">   
+                    </div>
+                    <div>
+                        <p class="text-xs text-text-light mb-1">Lundi 05, September 2020</p>
+                        <p class="text-base font-bold text-text-dark mb-3">Le sommeil, un pilier oublié de la santé</p>
+                        <div class="text-xs text-text-light">
+                            <span class="mr-4">♡ 68</span>
+                            <span>💬 86</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex w-full lg:w-[48%] bg-white border border-border-light rounded-lg shadow-sm hover:shadow-md transition text-left p-5">
+                    <div class="w-20 h-20 rounded-full bg-secondary-light flex-shrink-0 mr-5">
+                         <img 
+                src="img/Screenshot 2025-12-16 205336.png"
+                alt="Article image"
+                class="w-full h-full object-cover rounded-full"> 
+                    </div>
+                    <div>
+                        <p class="text-xs text-text-light mb-1">Lundi 05, September 2020</p>
+                        <p class="text-base font-bold text-text-dark mb-3">Manger équilibré même avec un emploi du temps chargé</p>
+                        <div class="text-xs text-text-light">
+                            <span class="mr-4">♡ 68</span>
+                            <span>💬 86</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 space-x-2">
+                <span class="inline-block w-2.5 h-2.5 bg-primary-teal rounded-full"></span>
+                <span class="inline-block w-2.5 h-2.5 bg-gray-300 rounded-full hover:bg-gray-400 transition"></span>
+                <span class="inline-block w-2.5 h-2.5 bg-gray-300 rounded-full hover:bg-gray-400 transition"></span>
             </div>
         </div>
     </section>
 
-    <section class="news-section">
-        <h2 class="news-main-header">MEILLEURES INFORMATIONS, MEILLEURE SANTÉ</h2>
-        <h3 class="section-title">Actualité</h3>
-        
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-card-image image-prevention"></div>
-                <div class="news-card-content">
-                    <p class="news-card-date">Lundi 05, September 2020</p>
-                    <p class="news-card-title">L'importance de la prévention dans la crise de la santé</p>
-                    <div class="news-card-footer">
-                        <span class="likes">♡ 68</span>
-                        <span class="comments">💬 86</span>
-                    </div>
-                </div>
+    <footer class="bg-secondary-light text-primary-teal p-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark mb-3">EspritMed</h4>
+                <p class="text-sm">Service de santé universitaire — Tunis</p>
+                <p class="text-xs mt-4">© 2025 Tous droits réservés.</p>
+                <p class="text-xs"><a href="#" class="hover:text-text-dark">Accessibilité</a></p>
             </div>
-
-            <div class="news-card">
-                <div class="news-card-image image-stress"></div>
-                <div class="news-card-content">
-                    <p class="news-card-date">Lundi 05, September 2020</p>
-                    <p class="news-card-title">Gérer le stress : des habitudes simples pour un esprit sain</p>
-                    <div class="news-card-footer">
-                        <span class="likes">♡ 68</span>
-                        <span class="comments">💬 86</span>
-                    </div>
-                </div>
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark mb-3">Liens</h4>
+                <a href="#" class="block text-sm hover:text-text-dark">Charte de confidentialité</a>
+                <a href="#" class="block text-sm hover:text-text-dark">Conditions d'utilisation</a>
             </div>
-
-            <div class="news-card">
-                <div class="news-card-image image-sleep"></div>
-                <div class="news-card-content">
-                    <p class="news-card-date">Lundi 05, September 2020</p>
-                    <p class="news-card-title">Le sommeil, un pilier oublié de la santé</p>
-                    <div class="news-card-footer">
-                        <span class="likes">♡ 68</span>
-                        <span class="comments">💬 86</span>
-                    </div>
-                </div>
+            <div class="space-y-2">
+                <h4 class="text-lg font-bold text-text-dark mb-3">Contact</h4>
+                <a href="mailto:sante@univ.tn" class="block text-sm hover:text-text-dark">sante@univ.tn</a>
+                <p class="text-sm">+216 00 000 000</p>
+                <p class="text-sm">Av. de l'Université, Tunis</p>
             </div>
-
-            <div class="news-card">
-                <div class="news-card-image image-nutrition"></div>
-                <div class="news-card-content">
-                    <p class="news-card-date">Lundi 05, September 2020</p>
-                    <p class="news-card-title">Manger équilibré même avec un emploi du temps chargé</p>
-                    <div class="news-card-footer">
-                        <span class="likes">♡ 68</span>
-                        <span class="comments">💬 86</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="news-pagination">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h4>EspritMed</h4>
-                <ul>
-                    <li><a href="#">Service de santé universitaire — Tunis</a></li>
-                    <li><a href="#">© 2025 Tous droits réservés.</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Liens</h4>
-                <ul>
-                    <li><a href="#">Charte de confidentialité</a></li>
-                    <li><a href="#">Conditions d'utilisation</a></li>
-                    <li><a href="#">Accessibilité</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="mailto:sante@univ.tn">sante@univ.tn</a></li>
-                    <li><a href="#">+216 00 000 000</a></li>
-                    <li>Av. de l'Université, Tunis</li>
-                </ul>
-            </div>
+            <div></div>
         </div>
     </footer>
 
