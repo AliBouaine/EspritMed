@@ -1,17 +1,10 @@
-<<<<<<< HEAD
-export default {
-  content: [
-    "./public/**/*.html"
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-=======
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/*.html", "./src/**/*.{js,ts,jsx,tsx,html}"],
+  content: [
+    "./public/**/*.html",
+    "./public/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,html}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -31,4 +24,3 @@ module.exports = {
   },
   plugins: [],
 };
->>>>>>> ca09eb104672c0f83e7eba038693702bad21122c
