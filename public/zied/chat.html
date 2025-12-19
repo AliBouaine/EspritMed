@@ -3,29 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EspritMed — File d’attente en direct</title>
+  <title>EspritMed — Assistant Chat</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind output (and legacy.css imported via src/input.css) -->
+  <!-- ✅ CSS moved to external file -->
   <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="legacy.css">
 
+</head>
 <body>
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="find.html" class="brand">
+      <a href="../homepage/home.html" class="brand">
         <span class="mark">EM</span> EspritMed
       </a>
 
       <nav class="nav-desktop" aria-label="Navigation principale">
         <ul>
+            <ul>
          <li><a href="index.html">Accueil</a></li>
           <li><a href="find.html" aria-current="page">Médecins</a></li>
           <li><a href="book.html">Rendez-vous</a></li>
           <li><a href="live.html">File d’attente</a></li>
           <li><a href="emg.html">Urgences</a></li>
+        </ul>
         </ul>
       </nav>
 
@@ -44,84 +47,117 @@
         <a href="find.html">Accueil</a>
         <a href="find.html">Médecins</a>
         <a href="book.html">Rendez-vous</a>
-        <a href="live.html" aria-current="page">File d’attente</a>
-        <a href="emg.html">Urgences</a>
+        <a href="live.html">File d’attente</a>
+        <a href="emg.html" aria-current="page">Urgences</a>
       </nav>
     </div>
   </header>
 
   <!-- Main -->
   <main>
-    <section class="queue-shell">
-      <div class="queue-wrap">
-        <header class="queue-header">
-          <div class="queue-header-text">
-            <h1>File d’attente en direct</h1>
-            <p>Suivez en temps réel votre position dans la file d’attente du service médical du campus.</p>
+    <section class="chat-shell">
+      <div class="chat-wrap">
+        <header class="chat-header">
+          <div>
+            <h1 class="chat-heading">Assistant EspritMed</h1>
+            <p class="chat-sub">
+              Posez vos questions, trouvez le bon service, ou demandez de l’aide en quelques secondes.
+            </p>
           </div>
-
-          <div class="queue-badge">
-            <div class="queue-badge-dot" aria-hidden="true"></div>
+          <div class="chat-badge">
+            <div class="chat-badge-dot" aria-hidden="true"></div>
             <div>
-              <div style="font-weight:700; line-height:1;">File active</div>
-              <div class="queue-badge-sub">Mises à jour toutes les 30 secondes</div>
+              <div style="font-weight:700; line-height:1;">Disponible maintenant</div>
+              <div class="chat-badge-sub">Temps de réponse moyen&nbsp;:&nbsp; &lt; 1 min</div>
             </div>
           </div>
         </header>
 
-        <section class="queue-board" aria-label="Suivi de la file d’attente">
-          <h2 class="queue-title">Statut actuel — Médecine générale</h2>
-
-          <div class="queue-grid">
-            <div class="queue-panel">
-              <div class="queue-timer" aria-label="Temps d’attente estimé">08:12</div>
-
-              <div class="queue-sub">
-                Vous êtes <strong>#3</strong> dans la file
-                <small>Guichet : Médecine générale — Campus Clinic</small>
-              </div>
-
-              <div class="queue-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="48">
-                <div class="queue-progress-fill"></div>
-              </div>
-
-              <div class="queue-meta">
-                <span><strong>File estimée :</strong> 8 à 12 minutes</span>
-                <span>•</span>
-                <span><strong>Dernière mise à jour :</strong> il y a 2 min</span>
-              </div>
-
-              <button class="queue-btn-primary" type="button" onclick="alert('Prototype : check-in')">
-                J’arrive au service maintenant
-              </button>
-
-              <div class="queue-extra">
-                Prochain·es patient·es :
-                <ul class="queue-extra-list" aria-label="Résumé des personnes devant vous (anonymisé)">
-                  <li><span>Patient A — ticket #21</span><span>En cours</span></li>
-                  <li><span>Patient B — ticket #22</span><span>À l’appel</span></li>
-                  <li><span>Vous — ticket #23</span><span>Préparez-vous</span></li>
+        <section class="chat-card" aria-label="Assistant de chat EspritMed">
+          <div class="chat-thread">
+            <!-- Assistant greeting -->
+            <div class="chat-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="chat-bubble">
+                <div class="chat-bubble-header">
+                  <span>Assistant EspritMed</span>
+                  <span>Aujourd’hui • 14:21</span>
+                </div>
+                Bonjour 👋&nbsp; Je peux vous aider à :
+                <ul style="margin:6px 0 0 18px; padding:0; font-size:.9rem;">
+                  <li>trouver un médecin ou une spécialité,</li>
+                  <li>comprendre vos options d’urgence,</li>
+                  <li>ou vérifier les horaires de la clinique du campus.</li>
                 </ul>
               </div>
             </div>
 
-            <div class="queue-alert" role="status">
-              <div class="queue-bell" aria-hidden="true"></div>
-              <div>
-                <h3 class="queue-alert-title">Léger retard du médecin</h3>
-                <p class="queue-alert-small">
-                  La consultation précédente prend un peu plus de temps que prévu.
-                  Le temps d’attente a été automatiquement ajusté. Vous recevrez une
-                  notification si votre passage est avancé ou retardé de plus de 5 minutes.
-                </p>
+            <!-- Quick suggestions -->
+            <div class="chat-quick" aria-label="Suggestions rapides">
+              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
+                Je ne me sens pas bien aujourd’hui
+                <span>Obtenir une orientation rapide</span>
+              </button>
+              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
+                Je veux parler à un psychologue
+                <span>Voir les créneaux disponibles</span>
+              </button>
+              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
+                Où aller en cas d’urgence ?
+                <span>Plan, numéros et file d’attente</span>
+              </button>
+            </div>
+
+            <!-- Example user message -->
+            <div class="chat-row me" aria-label="Exemple de message étudiant">
+              <div class="chat-bubble">
+                <div class="chat-bubble-header">
+                  <span>Vous</span>
+                  <span>Exemple</span>
+                </div>
+                J’ai mal à la tête depuis ce matin, je ne sais pas si je dois venir aux urgences
+                ou prendre un rendez-vous simple.
+              </div>
+              <div class="chat-avatar" aria-hidden="true"></div>
+            </div>
+
+            <!-- Assistant follow up -->
+            <div class="chat-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="chat-bubble">
+                <div class="chat-bubble-header">
+                  <span>Assistant EspritMed</span>
+                  <span>Réponse simulée</span>
+                </div>
+                Merci pour ces précisions. Je vais vous poser 3 petites questions sur vos symptômes
+                (durée, intensité, autres signes) pour vous orienter vers :
+                <strong>un rendez-vous classique</strong> ou <strong>le circuit d’urgence</strong>.
               </div>
             </div>
-          </div>
-        </section>
 
-        <p class="queue-note">
-          Prototype — contenu statique pour illustrer le suivi de file d’attente EspritMed.
-        </p>
+            <!-- Info pill -->
+            <div class="chat-info">
+              <span class="chat-clock" aria-hidden="true"></span>
+              <span><strong>Temps d’attente estimé</strong> pour parler à un·e infirmier·e&nbsp;: 8 à 12&nbsp;min</span>
+            </div>
+
+            <!-- Composer -->
+            <div class="chat-composer">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <label class="chat-input-shell" aria-label="Zone de message">
+                <input type="text" placeholder="Écrivez votre message à EspritMed…" />
+              </label>
+              <div class="chat-mic" aria-hidden="true" title="Entrée vocale (prototype)"></div>
+              <div class="chat-arrow" aria-hidden="true"></div>
+              <button class="chat-send" type="button" aria-label="Envoyer (prototype)"></button>
+            </div>
+          </div>
+
+          <p class="chat-footnote">
+            Prototype — les messages ne sont pas réellement envoyés, l’interface illustre seulement
+            le futur assistant EspritMed.
+          </p>
+        </section>
       </div>
     </section>
   </main>
@@ -254,10 +290,8 @@
       backdrop.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
       setTabs(pref === 'signup' ? 'signup' : 'login');
-
       const focusables = backdrop.querySelectorAll(focusablesSelector);
       const first = focusables[0], last = focusables[focusables.length-1];
-
       backdrop.addEventListener('keydown', trap);
       function trap(e){
         if(e.key === 'Escape'){ closeModal(); }
@@ -306,7 +340,7 @@
 
     // Reduce motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.btn, .queue-btn-primary').forEach(b=> b.style.transition='none');
+      document.querySelectorAll('.btn, .chat-send').forEach(b=> b.style.transition='none');
     }
   </script>
 

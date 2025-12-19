@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EspritMed — Dossier médical</title>
+  <title>EspritMed — Accueil</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
@@ -13,10 +13,12 @@
       --secondary:#DEF2F1;   /* pale mint */
       --accent:#3AAFA9;      /* aqua */
       --text:#17252A;        /* dark gray-blue */
+      --error:#FF6B6B;
       --white:#ffffff;
       --muted:#f6f8f9;
       --shadow: 0 8px 24px rgba(23,37,42,0.12);
-      --radius: 16px;
+      --radius: 14px;
+      --radius-sm: 10px;
       --container: 1100px;
     }
 
@@ -65,11 +67,6 @@
     .nav-desktop a:hover, .nav-desktop a:focus-visible{
       background:var(--secondary); outline:none;
     }
-    .nav-desktop a[aria-current="page"]{
-      background:var(--secondary);
-      color:var(--primary);
-      font-weight:600;
-    }
     .hamburger{
       display:none; border:2px solid var(--primary); background:transparent;
       color:var(--primary); border-radius:12px; padding:8px 10px; cursor:pointer;
@@ -79,11 +76,6 @@
     }
     .nav-mobile a{display:block; padding:12px 20px; color:var(--text); text-decoration:none}
     .nav-mobile a:hover{background:var(--secondary)}
-    .nav-mobile a[aria-current="page"]{
-      background:var(--secondary);
-      color:var(--primary);
-      font-weight:600;
-    }
 
     .header-actions{display:flex; gap:10px}
     .btn{
@@ -93,6 +85,7 @@
       padding:10px 14px; border-radius:12px; background:var(--bg); color:var(--fg);
       transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
       box-shadow: 0 2px 10px rgba(43,122,120,.15);
+      text-decoration:none;
     }
     .btn:hover{transform:translateY(-1px)}
     .btn:active{transform:translateY(0)}
@@ -102,11 +95,135 @@
     }
     .btn-accent{ --bg: var(--accent); }
 
+    /* Hero */
+    .hero{
+      background:
+        radial-gradient(1200px 400px at 70% -20%, rgba(58,175,169,.08), transparent 70%),
+        linear-gradient(180deg, var(--secondary), #f9fdfd 70%);
+      padding:64px 0 40px;
+      border-bottom:1px solid rgba(27,67,50,0.08);
+    }
+    .hero .wrap{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:24px; align-items:center;
+    }
+    .hero h1{
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height:1.15; margin:0 0 10px; color:var(--primary);
+    }
+    .hero p{margin:0 0 18px; font-size:1.05rem; color:#234}
+    .hero .cta{display:flex; gap:12px; flex-wrap:wrap}
+
+    .hero-card{
+      background:var(--white); border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px; border:1px solid rgba(27,67,50,0.08);
+    }
+    .hero-card h3{margin:0 0 10px; color:var(--primary)}
+    .hero-card .row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
     .input, select{
       width:100%; padding:10px 12px; border-radius:12px;
       border:1.5px solid rgba(23,37,42,.18); background:#fff; font:inherit;
     }
     .input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent }
+
+    /* Kicker */
+    .kicker{
+      display:inline-block; padding:2px 8px; border-radius:999px;
+      background:var(--secondary); color:var(--primary); font-size:.78rem; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .helper{ font-size:.9rem; color:#3a4f55; margin-top:6px }
+    .link{ color:var(--primary); text-decoration:none; font-weight:600 }
+    .link:hover{ text-decoration:underline }
+
+    /* ✅ Right illustration block (this is where the avatar should live) */
+    .home-illo{
+      position:relative;
+      width:100%;
+      min-height:240px;
+      border-radius:var(--radius);
+      border:1px solid rgba(27,67,50,.08);
+      box-shadow:var(--shadow);
+      background:
+        radial-gradient(800px 220px at 50% 20%, rgba(58,175,169,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* subtle horizontal divider like your screenshot */
+    .home-illo::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      top:62%;
+      height:1px;
+      background:rgba(39,85,90,.22);
+    }
+
+    /* ✅ Avatar fixed in the middle-right panel */
+    .doctor-avatar{
+      position:absolute;
+      top:48%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:66px;
+      height:66px;
+      border-radius:999px;
+      overflow:hidden;
+      background:#fff;
+      border:3px solid rgba(43,122,120,.22);
+      box-shadow:0 10px 22px rgba(23,37,42,.14);
+      display:block;
+      cursor:pointer;
+      z-index:2;
+    }
+
+    .doctor-avatar .qr-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .doctor-avatar:hover{
+      transform:translate(-50%,-50%) scale(1.05);
+      border-color: rgba(58,175,169,.55);
+    }
+
+    .doctor-avatar:focus-visible{
+      outline:2px solid var(--accent);
+      outline-offset:4px;
+    }
+
+    /* Stats band */
+    .stats{
+      background:var(--white);
+      border-bottom:1px solid rgba(27,67,50,.08);
+    }
+    .stats-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+      padding:18px 0;
+    }
+    .stat{
+      background:var(--secondary); border:1px solid rgba(27,67,50,.12);
+      border-radius:12px; padding:14px; text-align:center;
+    }
+    .stat .num{font-weight:800; font-size:1.2rem; color:var(--primary)}
+    .stat .lab{font-size:.9rem}
+
+    /* Features */
+    .section{padding:40px 0}
+    .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;}
+    .card{
+      background:var(--white); border-radius:var(--radius);
+      border:1px solid rgba(27,67,50,0.08); box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .card h4{margin:6px 0 8px; color:var(--primary)}
+    .card .actions{margin-top:10px}
 
     /* Footer */
     .site-footer{
@@ -142,7 +259,6 @@
       line-height:1; padding:8px; border-radius:10px;
     }
     .modal .close:focus-visible{ outline:2px solid var(--accent); }
-    .modal .body{ padding:16px; }
     .tabs{ display:flex; gap:6px; padding:0 16px 8px; border-bottom:1px solid rgba(27,67,50,0.08); }
     .tab{
       background:transparent; border:none; font-weight:700; color:var(--text);
@@ -150,256 +266,92 @@
     }
     .tab[aria-selected="true"]{ background:var(--secondary); color:var(--primary) }
     .form-grid{ display:grid; gap:12px; padding:14px 16px 4px; }
-    .error{ color:#FF6B6B; font-weight:600; display:none; }
+    .error{ color:var(--error); font-weight:600; display:none; }
     .actions{ display:flex; justify-content:space-between; gap:10px; padding:10px 16px 16px; }
-    .link{ color:var(--primary); text-decoration:none; font-weight:600 }
-    .link:hover{ text-decoration:underline }
 
-    /* Responsive header/footer */
+    /* Responsive */
     @media (max-width: 1024px){
+      .hero .wrap{ grid-template-columns:1fr; }
+      .stats-grid{ grid-template-columns:repeat(2,1fr); }
+      .cards{ grid-template-columns:1fr 1fr; }
       .nav-desktop{ display:none }
       .hamburger{ display:inline-flex; align-items:center; gap:.5rem }
+      .home-illo{ min-height:200px; }
     }
     @media (max-width: 600px){
+      .cards{ grid-template-columns:1fr; }
       .footgrid{ grid-template-columns:1fr; }
       .header-actions .btn{ padding:9px 12px }
+      .hero-card .row{ grid-template-columns:1fr; }
+      .stats-grid{ grid-template-columns:1fr; }
     }
 
     :focus-visible{ outline:2px solid var(--accent); outline-offset:2px }
 
-    /* ============================ */
-    /*      PAGE: DOSSIER MED       */
-    /* ============================ */
 
-    .records-shell{
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(58,175,169,.12), transparent 60%),
-        var(--muted);
-      padding:32px 0 40px;
-      border-bottom:1px solid rgba(27,67,50,0.08);
-    }
 
-    .records-wrap{
-      max-width:960px; margin:0 auto; padding:0 20px;
-    }
 
-    .records-card{
-      background:var(--white); border-radius:28px;
-      border:1px solid rgba(23,37,42,.12);
-      box-shadow:var(--shadow);
-      padding:clamp(18px,3vw,28px);
-    }
+    /* Right side hero visual */
+.hero-visual{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .records-header{
-      display:flex; justify-content:space-between; align-items:flex-start;
-      gap:16px; margin-bottom:18px;
-      flex-wrap:wrap;
-    }
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.6),
+    rgba(255,255,255,.9)
+  );
 
-    .records-title{
-      margin:0;
-      font-size:clamp(24px, 2.5vw, 30px);
-      letter-spacing:.18px;
-      color:var(--primary);
-    }
+  border-radius: 22px;
+  border: 1px solid rgba(27,67,50,.12);
+  box-shadow: 0 18px 40px rgba(23,37,42,.12);
 
-    .records-meta{
-      font-size:.85rem;
-      color:#5a757a;
-      text-align:right;
-    }
-    .records-meta strong{color:var(--primary);}
+  min-height: 360px;
+  padding: 28px;
+}
 
-    .pill-state{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:4px 10px; border-radius:999px;
-      background:var(--secondary);
-      color:var(--primary);
-      font-size:.8rem;
-      font-weight:600;
-    }
-    .pill-state-dot{
-      width:8px; height:8px; border-radius:50%; background:var(--primary);
-    }
+/* The actual hero image */
+.hero-img{
+  width: 100%;
+  max-width: 320px;      /* control size */
+  height: auto;
 
-    /* Timeline */
-    .timeline{
-      position:relative;
-      padding-left:92px;
-      display:flex; flex-direction:column; gap:14px;
-      margin-bottom:18px;
-      margin-top:4px;
-    }
-    .timeline::before{
-      content:"";
-      position:absolute; left:54px; top:4px; bottom:4px;
-      width:6px; background:#e0f0ee; border-radius:999px;
-    }
+  object-fit: contain;
+  border-radius: 18px;
 
-    .titem{
-      display:grid;
-      grid-template-columns: 72px minmax(0, 1.4fr) minmax(0, 1fr);
-      align-items:center;
-      gap:10px;
-      position:relative;
-    }
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,.15));
+}
 
-    .ticon{
-      justify-self: center;
-      width:44px; height:44px; border-radius:14px;
-      background:#f5fbfb; border:1px solid rgba(23,37,42,.12);
-      box-shadow: 0 2px 6px rgba(0,0,0,.03);
-      display:grid; place-items:center;
-      color:var(--primary);
-      font-size:.75rem;
-      font-weight:700;
-    }
-    .ticon::before{
-      content:"";
-      width:24px; height:16px; border:2px solid rgba(23,37,42,.4); border-radius:4px;
-      box-shadow: 0 -6px 0 -4px rgba(23,37,42,.4);
-    }
+/* Bigger on large screens */
+@media (min-width: 1200px){
+  .hero-img{
+    max-width: 380px;
+  }
+}
 
-    .tcard{
-      background:#fff; border:1px solid rgba(23,37,42,.08); border-radius:18px;
-      padding:10px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.03);
-    }
-    .tcard .name{
-      font-weight:800; margin-bottom:2px;
-    }
-    .tcard .sub{
-      color:#5d737a;
-      font-size:.85rem;
-    }
-    .t-tags{
-      display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;
-    }
-    .t-tag{
-      padding:2px 8px; border-radius:999px; font-size:.75rem;
-      background:#edf7f6; color:#24575c;
-      border:1px solid rgba(23,37,42,.08);
-    }
+/* Hide image on small screens (mobile) */
+@media (max-width: 900px){
+  .hero-visual{
+    display: none;
+  }
+}
 
-    .tmeta{
-      font-size:.8rem;
-      color:#5d737a;
-      text-align:right;
-    }
-    .tmeta strong{color:var(--primary);}
-
-    /* Sections */
-    .sections{
-      padding-left:92px;
-      display:flex; flex-direction:column; gap:10px;
-      margin-top:10px;
-    }
-
-    .row{
-      display:grid; grid-template-columns: 44px minmax(0, 1fr) auto;
-      align-items:center;
-      gap:12px; padding:10px 0; border-radius:14px;
-    }
-    .row.active{
-      background:#f3fbfa; border:1px solid rgba(23,37,42,.12);
-      padding:12px 12px;
-    }
-
-    .sicon{
-      width:36px; height:36px; border-radius:10px; background:#f5fbfb;
-      border:1px solid rgba(23,37,42,.12); position:relative; justify-self:center;
-    }
-    .sicon.pill::before{
-      content:""; position:absolute; inset:0; margin:auto; width:18px; height:8px;
-      border:2px solid rgba(23,37,42,.5); border-radius:6px/6px;
-    }
-    .sicon.note::before{
-      content:""; position:absolute; left:8px; right:8px; top:10px; height:14px;
-      border:2px solid rgba(23,37,42,.5); border-radius:3px;
-    }
-    .sicon.doc::before{
-      content:""; position:absolute; left:8px; right:8px; top:8px; height:16px;
-      border:2px solid rgba(23,37,42,.5); border-radius:3px;
-    }
-    .sicon.mrec::before{
-      content:""; position:absolute; left:9px; top:9px; width:18px; height:20px;
-      border:2px solid rgba(23,37,42,.5); border-radius:3px;
-      clip-path: polygon(0 0, 70% 0, 100% 28%, 100% 100%, 0 100%);
-    }
-
-    .label-block{
-      display:flex; flex-direction:column;
-    }
-    .label{
-      font-weight:800; color:var(--text);
-    }
-    .label-sub{
-      font-size:.8rem; color:#5f757a; margin-top:2px;
-    }
-
-    .badge-count{
-      padding:3px 8px;
-      border-radius:999px;
-      font-size:.75rem;
-      background:#edf7f6;
-      color:#24575c;
-      border:1px solid rgba(23,37,42,.12);
-      font-weight:600;
-    }
-
-    /* CTA */
-    .cta{
-      padding-left:92px;
-      margin-top:20px; display:flex; justify-content:flex-start; gap:12px;
-      flex-wrap:wrap;
-    }
-    .btn-main{
-      border:1px solid var(--primary); color:#fff;
-      background: linear-gradient(#2B7A78,#22615f);
-      padding:12px 22px; border-radius:22px; font-weight:800; cursor:pointer;
-      min-width:220px; text-align:center; box-shadow:0 6px 16px rgba(23,37,42,.12);
-    }
-    .btn-ghost{
-      border-radius:20px; padding:11px 18px; font-weight:700; cursor:pointer;
-      border:1px solid rgba(23,37,42,.14); background:#f4fbfa; color:#24575c;
-    }
-
-    .hint{
-      margin-top:12px;
-      padding-left:92px;
-      font-size:.82rem;
-      color:#5f757a;
-    }
-
-    /* Responsive */
-    @media (max-width:720px){
-      .timeline, .sections, .cta, .hint{ padding-left:78px; }
-      .timeline::before{ left:46px; }
-      .titem{ grid-template-columns: 64px minmax(0, 1.4fr); grid-auto-rows:auto; }
-      .tmeta{ grid-column: 2 / -1; text-align:left; margin-top:4px; }
-      .row{ grid-template-columns: 40px minmax(0, 1fr); }
-      .row .badge-count{ margin-top:8px; grid-column:2 / -1; justify-self:flex-start; }
-      .records-header{ flex-direction:column; align-items:flex-start; }
-      .records-meta{text-align:left;}
-    }
-
-    .note{
-      margin-top:10px; text-align:center; color:#5f757a; font-size:13px;
-    }
-    .note strong{color:var(--primary);}
   </style>
 </head>
+
 <body>
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="find.html" class="brand">
+      <a href="../homepage/home.html" class="brand">
         <span class="mark">EM</span> EspritMed
       </a>
 
       <nav class="nav-desktop" aria-label="Navigation principale">
-         <ul>
-         <li><a href="index.html">Accueil</a></li>
-          <li><a href="find.html" aria-current="page">Médecins</a></li>
+        <ul>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="find.html">Médecins</a></li>
           <li><a href="book.html">Rendez-vous</a></li>
           <li><a href="live.html">File d’attente</a></li>
           <li><a href="emg.html">Urgences</a></li>
@@ -418,152 +370,128 @@
 
     <div id="nav-mobile" class="nav-mobile" hidden>
       <nav aria-label="Navigation mobile">
-        <a href="find.html">Accueil</a>
+        <a href="index.html" aria-current="page">Accueil</a>
         <a href="find.html">Médecins</a>
         <a href="book.html">Rendez-vous</a>
         <a href="live.html">File d’attente</a>
-        <a href="log.html" aria-current="page">Dossier médical</a>
+        <a href="emg.html">Urgences</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main -->
-  <main>
-    <section class="records-shell">
-      <div class="records-wrap">
-        <article class="records-card" aria-label="Dossier médical étudiant (prototype)">
-          <header class="records-header">
-            <div>
-              <h1 class="records-title">Dossier médical</h1>
-              <p style="margin:.2rem 0 0; font-size:.9rem; color:#5f757a;">
-                Résumé des consultations effectuées au centre de santé universitaire.
-              </p>
-            </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container wrap">
+      <!-- Left -->
+      <div>
+        <h1>La santé sur le campus, simple et rapide.</h1>
+        <p>Réservez une consultation, suivez la file d’attente en direct, trouvez un spécialiste, et accédez aux urgences en un clic.</p>
 
-            <div class="records-meta">
-              <div><strong>Étudiant :</strong> Zied A.</div>
-              <div><strong>Numéro dossier :</strong> EM-2024-0193</div>
-              <div style="margin-top:4px;">
-                <span class="pill-state">
-                  <span class="pill-state-dot"></span>
-                  Dernière mise à jour : 22/03/2024
-                </span>
-              </div>
-            </div>
-          </header>
+        <div class="cta">
+          <button class="btn" data-open-modal="auth">Se connecter</button>
+          <a class="btn btn-accent" href="#" data-open-modal="auth" data-pref="signup">Créer un compte</a>
+        </div>
 
-          <!-- Timeline -->
-          <section class="timeline" aria-label="Historique des rendez-vous">
-            <!-- Item 1 -->
-            <div class="titem">
-              <div class="ticon" aria-hidden="true"></div>
-              <div class="tcard">
-                <div class="name">Dr. Alice Carter</div>
-                <div class="sub">Consultation générale — 22 mars 2024</div>
-                <div class="t-tags">
-                  <span class="t-tag">Fièvre &amp; maux de tête</span>
-                  <span class="t-tag">Campus Nord</span>
-                </div>
-              </div>
-              <div class="tmeta">
-                <div><strong>Statut :</strong> Clôturé</div>
-                <div><strong>Ordonnances :</strong> 1 document</div>
-              </div>
-            </div>
+        <div class="hero-card" aria-describedby="hero-helper" style="margin-top:16px">
+          <span class="kicker">Démarrer</span>
+          <h3 id="hero-helper">Réservation rapide</h3>
 
-            <!-- Item 2 -->
-            <div class="titem">
-              <div class="ticon" aria-hidden="true"></div>
-              <div class="tcard">
-                <div class="name">Dr. James Miller</div>
-                <div class="sub">Médecine du sport — 12 janvier 2024</div>
-                <div class="t-tags">
-                  <span class="t-tag">Douleurs lombaires</span>
-                  <span class="t-tag">Suivi kiné recommandé</span>
-                </div>
-              </div>
-              <div class="tmeta">
-                <div><strong>Statut :</strong> En suivi</div>
-                <div><strong>Comptes-rendus :</strong> 2 fichiers</div>
-              </div>
-            </div>
+          <div class="row" style="margin:10px 0 12px">
+            <label>
+              <span style="display:block; font-weight:600">Spécialité</span>
+              <select aria-label="Choisir une spécialité">
+                <option>Médecine générale</option>
+                <option>Psychiatrie</option>
+                <option>Dermatologie</option>
+                <option>Cardiologie</option>
+              </select>
+            </label>
 
-            <!-- Item 3 -->
-            <div class="titem">
-              <div class="ticon" aria-hidden="true"></div>
-              <div class="tcard">
-                <div class="name">Dr. Sarah Wong</div>
-                <div class="sub">Consultation bien-être — 30 mai 2023</div>
-                <div class="t-tags">
-                  <span class="t-tag">Sommeil &amp; stress</span>
-                  <span class="t-tag">Conseils d’hygiène de vie</span>
-                </div>
-              </div>
-              <div class="tmeta">
-                <div><strong>Statut :</strong> Clôturé</div>
-                <div><strong>Notes :</strong> 1 synthèse</div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Sections -->
-          <section class="sections" aria-label="Sections du dossier">
-            <div class="row">
-              <div class="sicon pill" aria-hidden="true"></div>
-              <div class="label-block">
-                <div class="label">Ordonnances</div>
-                <div class="label-sub">Traitements prescrits et posologie.</div>
-              </div>
-              <span class="badge-count">3 fichiers</span>
-            </div>
-
-            <div class="row">
-              <div class="sicon note" aria-hidden="true"></div>
-              <div class="label-block">
-                <div class="label">Notes des médecins</div>
-                <div class="label-sub">Observations cliniques et recommandations.</div>
-              </div>
-              <span class="badge-count">5 entrées</span>
-            </div>
-
-            <div class="row">
-              <div class="sicon doc" aria-hidden="true"></div>
-              <div class="label-block">
-                <div class="label">Documents</div>
-                <div class="label-sub">Résultats de laboratoire, imagerie, certificats.</div>
-              </div>
-              <span class="badge-count">4 documents</span>
-            </div>
-
-            <div class="row active">
-              <div class="sicon mrec" aria-hidden="true"></div>
-              <div class="label-block">
-                <div class="label">Résumé médical</div>
-                <div class="label-sub">Synthèse compacte de votre état de santé actuel.</div>
-              </div>
-              <span class="badge-count">Vue active</span>
-            </div>
-          </section>
-
-          <!-- Actions -->
-          <div class="cta">
-            <button class="btn-main" type="button">Télécharger le dossier en PDF</button>
-            <button class="btn-ghost" type="button">Partager avec un médecin externe</button>
+            <label>
+              <span style="display:block; font-weight:600">Date</span>
+              <input class="input" type="date" aria-label="Choisir une date">
+            </label>
           </div>
 
-          <p class="hint">
-            Pour des raisons de sécurité, certains éléments sensibles (tests psychologiques, données de tiers, etc.)
-            peuvent ne pas apparaître dans le PDF partagé automatiquement.
+          <button class="btn" style="width:100%">Rechercher un créneau</button>
+          <p class="helper">Vous n’avez pas de compte ?
+            <a class="link" href="#" data-open-modal="auth" data-pref="signup">Inscrivez-vous</a> en 30 secondes.
           </p>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div aria-hidden="true">
+       <div class="hero-visual">
+  <img
+    src="assets/doctor.png"
+    alt="Médecin du campus EspritMed"
+    class="hero-img"
+  />
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" aria-label="Statistiques EspritMed">
+    <div class="container stats-grid">
+      <div class="stat"><div class="num">24/7</div><div class="lab">Assistance</div></div>
+      <div class="stat"><div class="num">+120</div><div class="lab">Consultations / jour</div></div>
+      <div class="stat"><div class="num">15</div><div class="lab">Spécialités</div></div>
+      <div class="stat"><div class="num">3 min</div><div class="lab">Temps d’inscription</div></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        <article class="card">
+          <span class="kicker">File d’attente</span>
+          <h4>Temps d’attente en direct</h4>
+          <p>Consultez le nombre d’étudiants en file et l’estimation en minutes avant votre passage.</p>
+          <div class="actions"><button class="btn btn-outline">Voir la file</button></div>
         </article>
 
-        <p class="note">
-          Prototype — interface statique pour maquette EspritMed.<br>
-          <strong>Aucune donnée réelle n’est stockée ou transmise.</strong>
-        </p>
+        <article class="card">
+          <span class="kicker">Spécialistes</span>
+          <h4>Trouvez le bon médecin</h4>
+          <p>Filtrez par spécialité, disponibilité et langue. Réservez en un clic.</p>
+          <div class="actions"><button class="btn btn-outline">Parcourir</button></div>
+        </article>
+
+        <article class="card">
+          <span class="kicker">Urgences</span>
+          <h4>Bouton SOS</h4>
+          <p>Accès rapide aux urgences du campus et numéros prioritaires.</p>
+          <div class="actions"><button class="btn btn-accent">SOS</button></div>
+        </article>
+
+        <article class="card">
+          <span class="kicker">Téléconsultation</span>
+          <h4>En ligne, en toute sécurité</h4>
+          <p>Discutez avec un médecin sans vous déplacer via un salon vidéo sécurisé.</p>
+          <div class="actions"><button class="btn">Démarrer</button></div>
+        </article>
+
+        <article class="card">
+          <span class="kicker">Vaccination</span>
+          <h4>Rappels & RDV</h4>
+          <p>Recevez des rappels et prenez rendez-vous pour vos vaccins obligatoires.</p>
+          <div class="actions"><button class="btn btn-outline">Planifier</button></div>
+        </article>
+
+        <article class="card">
+          <span class="kicker">Pharmacie</span>
+          <h4>Ordonnances & renouvellements</h4>
+          <p>Gérez vos ordonnances et trouvez la pharmacie de garde la plus proche.</p>
+          <div class="actions"><button class="btn btn-outline">Consulter</button></div>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
@@ -723,11 +651,9 @@
     closer.forEach(btn=> btn.addEventListener('click', closeModal));
     backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) closeModal(); });
 
-    // Tabs
     tabLogin.addEventListener('click', ()=> setTabs('login'));
     tabSignup.addEventListener('click', ()=> setTabs('signup'));
 
-    // Dummy validation demo
     document.querySelector('#panel-login form')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const ok = document.getElementById('login-email').value && document.getElementById('login-pass').value;
@@ -741,22 +667,9 @@
       if(ok){ closeModal(); alert('Compte créé 🎉 (démo)'); }
     });
 
-    // Reduce motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.querySelectorAll('.btn').forEach(b=> b.style.transition='none');
     }
   </script>
-
-<script>
-  // Minimal navigation helpers for this static prototype
-  window.EMNav = {
-    go: function (url) { window.location.href = url; },
-    back: function (fallback) {
-      if (window.history.length > 1) window.history.back();
-      else window.location.href = fallback || "find.html";
-    }
-  };
-</script>
-
 </body>
 </html>

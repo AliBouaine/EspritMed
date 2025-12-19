@@ -3,32 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EspritMed — Assistant Chat</title>
+  <title>EspritMed — Rendez-vous</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- ✅ CSS moved to external file -->
+  <!-- Tailwind output (and legacy.css imported via src/input.css) -->
   <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="legacy.css">
-
 </head>
+
 <body>
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="find.html" class="brand">
+      <a href="../homepage/home.html" class="brand">
         <span class="mark">EM</span> EspritMed
       </a>
 
       <nav class="nav-desktop" aria-label="Navigation principale">
         <ul>
-            <ul>
-         <li><a href="index.html">Accueil</a></li>
-          <li><a href="find.html" aria-current="page">Médecins</a></li>
-          <li><a href="book.html">Rendez-vous</a></li>
+          <li><a href="find.html">Accueil</a></li>
+          <li><a href="find.html">Médecins</a></li>
+          <li><a href="book.html" aria-current="page">Rendez-vous</a></li>
           <li><a href="live.html">File d’attente</a></li>
           <li><a href="emg.html">Urgences</a></li>
-        </ul>
         </ul>
       </nav>
 
@@ -43,119 +40,144 @@
     </div>
 
     <div id="nav-mobile" class="nav-mobile" hidden>
-      <nav aria-label="Navigation mobile">
-        <a href="find.html">Accueil</a>
-        <a href="find.html">Médecins</a>
-        <a href="book.html">Rendez-vous</a>
-        <a href="live.html">File d’attente</a>
-        <a href="emg.html" aria-current="page">Urgences</a>
-      </nav>
+    <ul>
+         <li><a href="index.html">Accueil</a></li>
+          <li><a href="find.html" aria-current="page">Médecins</a></li>
+          <li><a href="book.html">Rendez-vous</a></li>
+          <li><a href="live.html">File d’attente</a></li>
+          <li><a href="emg.html">Urgences</a></li>
+        </ul>
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Rendez-vous main content -->
   <main>
-    <section class="chat-shell">
-      <div class="chat-wrap">
-        <header class="chat-header">
+    <section class="page-shell">
+      <div class="container">
+        <header class="page-header">
           <div>
-            <h1 class="chat-heading">Assistant EspritMed</h1>
-            <p class="chat-sub">
-              Posez vos questions, trouvez le bon service, ou demandez de l’aide en quelques secondes.
+            <h1 class="page-title">Prendre un rendez-vous</h1>
+            <p class="page-subtitle">
+              Choisissez un médecin, un créneau, précisez la raison de votre visite, puis validez.
             </p>
           </div>
-          <div class="chat-badge">
-            <div class="chat-badge-dot" aria-hidden="true"></div>
+          <div class="status-badge" aria-label="Disponibilité des médecins">
+            <div class="status-dot" aria-hidden="true"></div>
             <div>
-              <div style="font-weight:700; line-height:1;">Disponible maintenant</div>
-              <div class="chat-badge-sub">Temps de réponse moyen&nbsp;:&nbsp; &lt; 1 min</div>
+              <div style="font-weight:700; line-height:1;">Médecins disponibles</div>
+              <div class="status-text-weak">Temps d’attente moyen : ~12&nbsp;min</div>
             </div>
           </div>
         </header>
 
-        <section class="chat-card" aria-label="Assistant de chat EspritMed">
-          <div class="chat-thread">
-            <!-- Assistant greeting -->
-            <div class="chat-row">
-              <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-bubble">
-                <div class="chat-bubble-header">
-                  <span>Assistant EspritMed</span>
-                  <span>Aujourd’hui • 14:21</span>
+        <section class="board" aria-label="Formulaire de réservation de rendez-vous">
+          <h2 class="board-title">Réservation de consultation</h2>
+          <p class="board-helper">
+            Prototype statique — l’exemple ci-dessous illustre le flux de prise de rendez-vous et le QR code de check-in.
+          </p>
+
+          <div class="appointment-grid">
+            <!-- Left: booking form -->
+            <article class="card" aria-label="Formulaire de rendez-vous">
+              <div class="field">
+                <span class="field-label">Choisir un médecin</span>
+
+                <div class="fake-select" aria-label="Sélection du médecin (exemple statique)">
+                  <div class="fake-select-main">
+                    <!-- Doctor photo (same as profile) -->
+       <div class="doctor-avatar" aria-label="Portrait du médecin">
+  <img src="assets/doctor.png" alt="Portrait du médecin">
+</div>
+
+
+                    <div>
+                      <div class="fake-select-name">Dr&nbsp;Zied Johnson</div>
+                      <div class="fake-select-meta">Médecine interne • Service EspritMed</div>
+                    </div>
+                  </div>
+                  <span class="caret" aria-hidden="true"></span>
                 </div>
-                Bonjour 👋&nbsp; Je peux vous aider à :
-                <ul style="margin:6px 0 0 18px; padding:0; font-size:.9rem;">
-                  <li>trouver un médecin ou une spécialité,</li>
-                  <li>comprendre vos options d’urgence,</li>
-                  <li>ou vérifier les horaires de la clinique du campus.</li>
-                </ul>
               </div>
-            </div>
 
-            <!-- Quick suggestions -->
-            <div class="chat-quick" aria-label="Suggestions rapides">
-              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
-                Je ne me sens pas bien aujourd’hui
-                <span>Obtenir une orientation rapide</span>
-              </button>
-              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
-                Je veux parler à un psychologue
-                <span>Voir les créneaux disponibles</span>
-              </button>
-              <button type="button" class="chat-chip" onclick="EMNav.go('emg.html')">
-                Où aller en cas d’urgence ?
-                <span>Plan, numéros et file d’attente</span>
-              </button>
-            </div>
+              <div class="field">
+                <span class="field-label">Date & heure</span>
+                <div class="row-2">
+                  <label>
+                    <span class="field-label" style="font-weight:600; font-size:.85rem;">Date</span>
+                    <input class="input" type="date" aria-label="Choisir une date">
+                  </label>
 
-            <!-- Example user message -->
-            <div class="chat-row me" aria-label="Exemple de message étudiant">
-              <div class="chat-bubble">
-                <div class="chat-bubble-header">
-                  <span>Vous</span>
-                  <span>Exemple</span>
+                  <div>
+                    <span class="field-label" style="font-weight:600; font-size:.85rem;">Heure & attente estimée</span>
+                    <div class="row-2">
+                      <div class="time-block">
+                        <span class="clock" aria-hidden="true"></span>
+                        <span>10:00</span>
+                      </div>
+
+                      <div class="pill-info">
+                        <span class="time-icon" aria-hidden="true"></span>
+                        <div><strong>Attente estimée :</strong> 12&nbsp;min</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                J’ai mal à la tête depuis ce matin, je ne sais pas si je dois venir aux urgences
-                ou prendre un rendez-vous simple.
               </div>
-              <div class="chat-avatar" aria-hidden="true"></div>
-            </div>
 
-            <!-- Assistant follow up -->
-            <div class="chat-row">
-              <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-bubble">
-                <div class="chat-bubble-header">
-                  <span>Assistant EspritMed</span>
-                  <span>Réponse simulée</span>
+              <div class="field">
+                <span class="field-label">Raison de la visite</span>
+                <textarea class="textarea" placeholder="Ex. : douleur au ventre depuis 2 jours, fatigue, etc." aria-label="Raison de la visite"></textarea>
+              </div>
+
+              <button class="btn btn-accent btn-full" type="button">
+                Confirmer le rendez-vous
+              </button>
+            </article>
+
+            <!-- Right: QR + summary -->
+            <aside class="card" aria-label="Récapitulatif et QR code (exemple)">
+              <div class="qr-wrap">
+                <!-- Real QR image -->
+                <div class="qr-box" aria-label="QR code de check-in">
+  <img
+    src="assets/qr.png"
+    alt="QR code du rendez-vous"
+    class="qr-img"
+  />
+</div>
+
+                <div class="qr-note">Présentez ce code à l’accueil pour confirmer votre arrivée.</div>
+
+                <div class="summary" aria-label="Résumé du rendez-vous (exemple)">
+                  <div class="summary-item">
+                    <div class="summary-icon cal" aria-hidden="true"></div>
+                    <div>
+                      <strong>Dr&nbsp;Zied Johnson</strong><br>
+                      Médecine interne — Service de santé universitaire
+                    </div>
+                  </div>
+
+                  <div class="summary-item">
+                    <div class="summary-icon time" aria-hidden="true"></div>
+                    <div>15&nbsp;avril&nbsp;2024 à 10:00 • Attente estimée ~12&nbsp;min</div>
+                  </div>
+
+                  <div class="summary-item">
+                    <div class="summary-icon loc" aria-hidden="true"></div>
+                    <div>Centre de santé universitaire — Bloc A, 1er étage</div>
+                  </div>
                 </div>
-                Merci pour ces précisions. Je vais vous poser 3 petites questions sur vos symptômes
-                (durée, intensité, autres signes) pour vous orienter vers :
-                <strong>un rendez-vous classique</strong> ou <strong>le circuit d’urgence</strong>.
+
+                <div class="summary-ctas">
+                  <button class="btn-ghost" type="button" onclick="alert('Prototype : reprogrammation')">Reprogrammer</button>
+                  <button class="btn-ghost" type="button" onclick="alert('Prototype : annulation')">Annuler</button>
+                </div>
               </div>
-            </div>
-
-            <!-- Info pill -->
-            <div class="chat-info">
-              <span class="chat-clock" aria-hidden="true"></span>
-              <span><strong>Temps d’attente estimé</strong> pour parler à un·e infirmier·e&nbsp;: 8 à 12&nbsp;min</span>
-            </div>
-
-            <!-- Composer -->
-            <div class="chat-composer">
-              <div class="chat-avatar" aria-hidden="true"></div>
-              <label class="chat-input-shell" aria-label="Zone de message">
-                <input type="text" placeholder="Écrivez votre message à EspritMed…" />
-              </label>
-              <div class="chat-mic" aria-hidden="true" title="Entrée vocale (prototype)"></div>
-              <div class="chat-arrow" aria-hidden="true"></div>
-              <button class="chat-send" type="button" aria-label="Envoyer (prototype)"></button>
-            </div>
+            </aside>
           </div>
 
-          <p class="chat-footnote">
-            Prototype — les messages ne sont pas réellement envoyés, l’interface illustre seulement
-            le futur assistant EspritMed.
+          <p class="proto-note">
+            Prototype — contenu statique pour illustrer le parcours de prise de rendez-vous, l’attente estimée et le QR de check-in.
           </p>
         </section>
       </div>
@@ -340,7 +362,7 @@
 
     // Reduce motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.btn, .chat-send').forEach(b=> b.style.transition='none');
+      document.querySelectorAll('.btn').forEach(b=> b.style.transition='none');
     }
   </script>
 
