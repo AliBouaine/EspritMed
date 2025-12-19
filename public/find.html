@@ -21,7 +21,7 @@
 
       <nav class="nav-desktop" aria-label="Navigation principale">
         <ul>
-          <li><a href="find.html">Accueil</a></li>
+          <li><a href="index.html">Accueil</a></li>
           <li><a href="find.html" aria-current="page">Médecins</a></li>
           <li><a href="book.html">Rendez-vous</a></li>
           <li><a href="live.html">File d’attente</a></li>
@@ -131,7 +131,15 @@
           <section class="results-list" aria-label="Liste des médecins correspondants à la recherche">
             <!-- Card 1 -->
             <article class="doctor-card">
-              <div class="doctor-avatar" aria-hidden="true"></div>
+              <!-- ✅ avatar is now clickable + contains your image -->
+              <a class="doctor-avatar" href="profile.html" aria-label="Ouvrir le profil de Dr Alex Johnson">
+                <img
+                  src="assets/doctor.png"
+                  alt="QR code du rendez-vous"
+                  class="qr-img"
+                />
+              </a>
+
               <div class="doctor-meta">
                 <div class="name"><a href="profile.html" style="color:inherit; text-decoration:none;">Dr Alex Johnson</a></div>
                 <div class="sub">Médecine du sport • Clinique Campus Nord</div>
@@ -141,6 +149,7 @@
                   <span class="tag">Présentiel</span>
                 </div>
               </div>
+
               <div class="doctor-cta">
                 <div class="avail-pill">
                   <span class="avail-dot"></span>
@@ -152,7 +161,15 @@
 
             <!-- Card 2 -->
             <article class="doctor-card">
-              <div class="doctor-avatar" aria-hidden="true"></div>
+              <!-- ✅ avatar is now clickable + contains your image -->
+              <a class="doctor-avatar" href="profile.html" aria-label="Ouvrir le profil de Dr Maria Chen">
+                <img
+                  src="assets/doctor.png"
+                  alt="QR code du rendez-vous"
+                  class="qr-img"
+                />
+              </a>
+
               <div class="doctor-meta">
                 <div class="name"><a href="profile.html" style="color:inherit; text-decoration:none;">Dr Maria Chen</a></div>
                 <div class="sub">Kinésithérapie • Clinique Campus Est</div>
@@ -162,6 +179,7 @@
                   <span class="tag">Téléconsultation</span>
                 </div>
               </div>
+
               <div class="doctor-cta">
                 <div class="avail-pill">
                   <span class="avail-dot limited"></span>
@@ -173,15 +191,24 @@
 
             <!-- Card 3 -->
             <article class="doctor-card">
-              <div class="doctor-avatar" aria-hidden="true"></div>
+              <!-- ✅ avatar is now clickable + contains your image -->
+              <a class="doctor-avatar" href="profile.html" aria-label="Ouvrir le profil de la Cellule Santé Mentale Campus">
+                <img
+                  src="assets/doctor.png"
+                  alt="QR code du rendez-vous"
+                  class="qr-img"
+                />
+              </a>
+
               <div class="doctor-meta">
-                <div class="name">Cellule Santé Mentale Campus</div>
+                <div class="name"><a href="profile.html" style="color:inherit; text-decoration:none;">Cellule Santé Mentale Campus</a></div>
                 <div class="sub">Conseil & accompagnement • Espace Bien-être étudiant</div>
                 <div class="doctor-tags">
                   <span class="tag">Sur campus</span>
                   <span class="tag">Sans rendez-vous 9h00–12h00</span>
                 </div>
               </div>
+
               <div class="doctor-cta">
                 <div class="avail-pill">
                   <span class="avail-dot open"></span>
