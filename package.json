@@ -1,17 +1,21 @@
 {
-  "name": "espritmed",
+  "name": "tailwindtemplate",
   "version": "1.0.0",
-  "private": true,
+  "description": "EspritMed project",
+  "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./public/style.css --minify",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch"
+    "build": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./public/tailwind.css --minify",
+    "postinstall": "chmod +x node_modules/.bin/tailwindcss",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "tailwindcss": "^3.4.18",
-    "postcss": "^8.4.38",
-    "autoprefixer": "^10.4.19"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "engines": {
     "node": "20.x"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
   }
 }
